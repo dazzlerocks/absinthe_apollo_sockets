@@ -5,7 +5,7 @@ defmodule ApolloSocket.MessageHandler do
 
   @type apollo_socket :: %ApolloSocket{}
   @type message_handler_opts :: any()
-  @type message_handler_result :: {:ok, message_handler_opts} | 
+  @type message_handler_result :: {:ok, message_handler_opts} |
     {:reply, %OperationMessage{}, message_handler_opts} |
     {:reply, list(%OperationMessage{}), message_handler_opts}
 
@@ -66,4 +66,4 @@ defmodule ApolloSocket.MessageHandler do
       defoverridable ApolloSocket.MessageHandler
     end
   end
-end 
+end
