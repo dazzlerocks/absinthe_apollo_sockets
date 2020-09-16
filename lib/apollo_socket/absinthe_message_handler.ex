@@ -38,6 +38,15 @@ defmodule ApolloSocket.AbsintheMessageHandler do
     end
   end
 
+  def handle_stop(apollo_socket, operation_id, opts) do
+    pubsub = apollo_socket.message_handler_opts[:pubsub]
+    callback = apollo_socket.message_handler_opts[:unsubscribe_fun]
+
+    callback.(operation_id, pubsub)
+
+    {:ok, opts}
+  end
+
   defp data_broker_child_spec(pubsub, absinthe_subscription_id, operation_id, socket) do
     %{
       type: :worker,
