@@ -41,7 +41,7 @@ defmodule ApolloSocket do
       end
     rescue
       e ->
-        Logger.debug("Unexpected exception #{inspect e}")
+        Logger.error("Unexpected exception #{inspect e}")
         send_message(apollo_socket, OperationMessage.new_connection_error(%{
           message: ~s/An error occurred processing the message "#{json_string}"/
         }))

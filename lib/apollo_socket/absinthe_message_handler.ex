@@ -6,7 +6,7 @@ defmodule ApolloSocket.AbsintheMessageHandler do
 
   @impl ApolloSocket.MessageHandler
   def init(opts) when is_list(opts) do
-    {known_opts, _} = Keyword.split(opts, [:schema, :pubsub, :broker_sup, :context])
+    {known_opts, _} = Keyword.split(opts, [:schema, :pubsub, :broker_sup, :context, :unsubscribe_fun])
     Enum.into(known_opts, %{})
   end
 
